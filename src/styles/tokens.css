@@ -70,4 +70,7 @@
   --motion-ui: 0.3s;
   --motion-hero: 0.6s;
   --motion-stagger: 0.12s;
+
+  /* 레이아웃 */
+  --container-max: 70rem; /* 1120px, 시안 */
 }
