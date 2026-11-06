@@ -3,10 +3,22 @@ export interface Links {
   velog: string;
 }
 
+export interface DatedItem {
+  name: string;
+  date: string;
+}
+
+export interface Work {
+  title: string;
+  period: string;
+  items: string[];
+}
+
 export interface Career {
+  company: string;
   role: string;
   period: string;
-  summary: string;
+  works: Work[];
 }
 
 export interface Profile {
@@ -14,13 +26,14 @@ export interface Profile {
   role: string;
   heroTitle: string[];
   heroDescription: string;
+  aboutTitle: string;
   intro: string;
   email: string;
   links: Links;
   resumeUrl: string;
   photo?: string;
   career: Career;
-  certifications: string[];
-  education: string[];
-  training: string[];
+  certifications: DatedItem[];
+  education: DatedItem[];
+  training: DatedItem[];
 }

@@ -3,7 +3,7 @@ import type { SkillGroup } from "@/types/skill";
 export const skills: SkillGroup[] = [
   {
     category: "frontend",
-    title: "프론트엔드",
+    title: "Frontend",
     items: [
       "HTML5",
       "CSS3",
@@ -21,12 +21,12 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "backend",
-    title: "백엔드",
+    title: "Backend",
     items: ["Supabase", "SQL", "REST API"],
   },
   {
     category: "tools",
-    title: "작업 도구",
+    title: "Tools",
     items: ["Git", "GitHub", "Adobe Photoshop", "Figma", "Slack", "Claude"],
   },
 ];
