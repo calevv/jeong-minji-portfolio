@@ -71,9 +71,10 @@
   --motion-hero: 0.6s;
   --motion-stagger: 0.12s;
 
-  /* 레이아웃 */
-  --container-max: 70rem; /* 1120px, 시안 */
-
   /* 테두리 */
   --border-width: 1px;
+
+  /* 레이아웃 */
+  --container-max: 70rem; /* 1120px */
+  --measure: 35rem; /* 560px, 긴 문장의 최대 폭 */
 }
