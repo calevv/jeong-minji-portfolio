@@ -13,16 +13,15 @@ export interface Troubleshooting {
   problem: string;
   cause: string;
   solution: string;
-  learned: string;
+  learned?: string;
 }
 
 export interface ProjectDetail {
-  goal: string;
-  stackReasons: { name: string; reason: string }[];
+  overview: string[];
+  implementations: string[];
   screens: { image?: string; caption: string }[];
   troubleshooting: Troubleshooting[];
-  result: string;
-  nextPlan: string;
+  learned: string[];
 }
 
 export interface Project {

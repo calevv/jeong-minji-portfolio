@@ -82,6 +82,8 @@
 
   /* 레이아웃 */
   --container-max: 70rem; /* 1120px */
+  --content-max: 55rem; /* 880px, 상세 페이지 본문 폭 */
+
   --measure: 35rem; /* 560px, 긴 문장의 최대 폭 */
   --card-min: 17.5rem; /* 280px, 카드가 줄바꿈되는 최소 폭 */
   --avatar-size: 12.5rem; /* 200px */

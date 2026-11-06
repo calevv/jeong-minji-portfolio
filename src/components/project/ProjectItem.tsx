@@ -1,26 +1,8 @@
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
-import type { Project, ProjectKind, ProjectStatus } from "@/types/project";
+import type { Project } from "@/types/project";
+import { kindLabel, statusLabel, statusTone } from "./projectLabels";
 import styles from "./ProjectItem.module.css";
-
-const statusLabel: Record<ProjectStatus, string> = {
-  live: "운영 중",
-  completed: "완료",
-  "in-progress": "진행 중",
-  "renewal-planned": "리뉴얼 예정",
-};
-
-const statusTone: Record<ProjectStatus, "neutral" | "success" | "warning"> = {
-  live: "success",
-  completed: "neutral",
-  "in-progress": "neutral",
-  "renewal-planned": "warning",
-};
-
-const kindLabel: Record<ProjectKind, string> = {
-  personal: "개인 프로젝트",
-  team: "팀 프로젝트",
-};
 
 interface ProjectItemProps {
   project: Project;
