@@ -22,6 +22,10 @@
   display: block;
 }
 
+.accent {
+  color: var(--color-primary);
+}
+
 .description {
   max-width: var(--measure);
   font-size: var(--text-lg);

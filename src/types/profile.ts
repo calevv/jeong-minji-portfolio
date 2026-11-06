@@ -21,10 +21,15 @@ export interface Career {
   works: Work[];
 }
 
+export interface HeroLine {
+  text: string;
+  accent?: boolean;
+}
+
 export interface Profile {
   name: string;
   role: string;
-  heroTitle: string[];
+  heroTitle: HeroLine[];
   heroDescription: string;
   aboutTitle: string;
   intro: string;

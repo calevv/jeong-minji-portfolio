@@ -2,15 +2,21 @@ import type { Profile } from "@/types/profile";
 
 export const profile: Profile = {
   name: "정민지",
-  role: "[직무 표기]",
-  heroTitle: ["[히어로 제목 1줄]", "[히어로 제목 2줄]", "[히어로 제목 3줄]"],
-  heroDescription: "[히어로 소개 문장]",
-  aboutTitle: "[소개 제목]",
-  intro: "[소개 문구]",
-  email: "[이메일]",
+  role: "프론트엔드 개발자",
+  heroTitle: [
+    { text: "안녕하세요," },
+    { text: "프론트엔드 개발자", accent: true },
+    { text: "정민지입니다." },
+  ],
+  heroDescription:
+    "웹 퍼블리셔로 쌓은 마크업 기본기 위에, React와 Next.js로 실제로 동작하는 화면을 만듭니다.",
+  aboutTitle: "화면이 만들어지는 과정을 아는 프론트엔드 개발자",
+  intro:
+    "5년간 웹 퍼블리셔로 일했고, 최근 3년은 채용 사이트의 기업 페이지를 혼자 맡아 제작·수정 작업하며 디자인을 코드로 옮기는 감각을 쌓았습니다. 지금은 React와 Next.js로 화면이 동작하는 원리까지 직접 다루며 개발 영역을 넓혀가고 있습니다.",
+  email: "jeongminji.dev@gmail.com",
   links: {
-    github: "[GitHub 주소]",
-    velog: "[Velog 주소]",
+    github: "https://github.com/calevv",
+    velog: "https://velog.io/@jeongminji",
   },
   resumeUrl: "/resume.pdf",
   career: {

@@ -1,0 +1,109 @@
+.band {
+  --color-focus: var(--color-text-on-primary);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8) var(--space-16);
+  padding: var(--space-16) var(--space-12);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.text {
+  flex: 1 1 var(--card-min);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.eyebrow {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}
+
+.title {
+  font-size: var(--text-xl);
+}
+
+.resume {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  color: var(--color-text-on-primary);
+  font-weight: var(--weight-medium);
+}
+
+.links {
+  flex: 1 1 var(--card-min);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.email:hover,
+.snsLink:hover {
+  background: var(--color-bg-subtle);
+}
+
+.emailLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.emailAddress {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary-strong);
+}
+
+.emailAction {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+}
+
+.sns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.snsLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--tap-target);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.snsName {
+  font-weight: var(--weight-bold);
+}
+
+.snsUrl {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}

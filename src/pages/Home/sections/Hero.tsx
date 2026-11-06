@@ -8,8 +8,13 @@ export default function Hero() {
       <div className={styles.inner}>
         <h1 className={styles.title}>
           {profile.heroTitle.map((line) => (
-            <span key={line} className={styles.line}>
-              {line}
+            <span
+              key={line.text}
+              className={
+                line.accent ? `${styles.line} ${styles.accent}` : styles.line
+              }
+            >
+              {line.text}
             </span>
           ))}
         </h1>

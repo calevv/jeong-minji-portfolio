@@ -17,10 +17,16 @@ export default function About() {
         <div className={styles.header}>
           <p className={styles.eyebrow}>ABOUT</p>
           <div className={styles.intro}>
-            <div className={styles.avatar}>
-              {profile.photo && (
-                <img src={profile.photo} alt={`${profile.name} 프로필 사진`} />
-              )}
+            <div className={styles.profile}>
+              <div className={styles.avatar}>
+                {profile.photo && (
+                  <img
+                    src={profile.photo}
+                    alt={`${profile.name} 프로필 사진`}
+                  />
+                )}
+              </div>
+              <p className={styles.name}>{profile.name}</p>
             </div>
             <div className={styles.introText}>
               <h2 className={styles.title}>{profile.aboutTitle}</h2>
