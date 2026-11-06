@@ -42,6 +42,12 @@
   --color-border-control: #cbd3ea;
   --color-border-dashed: #b7c2e6;
 
+  /* 색: 상태 배지 */
+  --color-success-bg: #e3f5ea;
+  --color-success-text: #14602f;
+  --color-warning-bg: #fff1d6;
+  --color-warning-text: #7a4a00;
+
   /* 색: 프로젝트 커버 일러스트 전용 */
   --color-yellow: #ffc83d;
 
