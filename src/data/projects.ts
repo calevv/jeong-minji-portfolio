@@ -27,6 +27,7 @@ export const projects: Project[] = [
     ],
     result:
       "서버/클라이언트 컴포넌트의 경계를 직접 설계하며, 어떤 코드가 어디서 실행되는지 구조적으로 이해",
+    cover: "/images/projects/z-cat/cover.png",
     links: {
       demo: "https://z-cat-blog.vercel.app/",
       github: "https://github.com/calevv/Z-cat-blog",
@@ -46,8 +47,14 @@ export const projects: Project[] = [
         "Vercel Cron으로 새 Velog 글의 문체 변환, 썸네일 생성, 게시까지 자동화",
       ],
       screens: [
-        { caption: "[이 화면에서 해결한 것 한 줄]" },
-        { caption: "[이 화면에서 해결한 것 한 줄]" },
+        {
+          image: "/images/projects/z-cat/screen-1.png",
+          caption: "관리자 페이지에서 게시 상태별 탭으로 글을 걸러 보는 화면",
+        },
+        {
+          image: "/images/projects/z-cat/screen-2.png",
+          caption: "Gemini API로 문체를 변환해 Velog에서 옮겨 온 게시글",
+        },
       ],
       troubleshooting: [
         {
@@ -105,6 +112,7 @@ export const projects: Project[] = [
     ],
     result:
       "짧은 기간 안에 역할을 나눠 협업하고 배포까지 마무리하는 흐름을 경험",
+    cover: "/images/projects/ddalkkak-english/cover.png",
     links: {
       demo: "https://ddalkkak-english.netlify.app/",
       github: "https://github.com/namee-h/react-study-group-project",
@@ -124,8 +132,15 @@ export const projects: Project[] = [
         "퍼블리싱 경험을 살려 레이아웃 스타일 일부 정리",
       ],
       screens: [
-        { caption: "[이 화면에서 해결한 것 한 줄]" },
-        { caption: "[이 화면에서 해결한 것 한 줄]" },
+        {
+          image: "/images/projects/ddalkkak-english/screen-1.png",
+          caption:
+            "Firebase Authentication으로 구현한 이메일·Google 로그인 화면",
+        },
+        {
+          image: "/images/projects/ddalkkak-english/screen-2.png",
+          caption: "뉴스 기사 속 단어를 체크박스로 골라 모아 두는 단어장 화면",
+        },
       ],
       troubleshooting: [],
       learned: [

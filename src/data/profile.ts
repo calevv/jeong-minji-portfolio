@@ -8,6 +8,7 @@ export const profile: Profile = {
     { text: "프론트엔드 개발자", accent: true },
     { text: "정민지입니다." },
   ],
+  photo: "/images/profile.png",
   heroDescription:
     "웹 퍼블리셔로 쌓은 마크업 기본기 위에, React와 Next.js로 실제로 동작하는 화면을 만듭니다.",
   aboutTitle: "화면이 만들어지는 과정을 아는 프론트엔드 개발자",
