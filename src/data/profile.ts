@@ -19,7 +19,8 @@ export const profile: Profile = {
     github: "https://github.com/calevv",
     velog: "https://velog.io/@jeongminji",
   },
-  resumeUrl: "/resume.pdf",
+  resumeUrl:
+    "https://drive.google.com/file/d/10CrT6IP7y-urfiveQFhfxwEpfuuxB4h7/view?usp=sharing",
   career: {
     company: "HR 솔루션 기업",
     role: "웹 퍼블리셔",
