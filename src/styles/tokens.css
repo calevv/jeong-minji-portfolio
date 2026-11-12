@@ -4,6 +4,8 @@
     "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui,
     sans-serif;
 
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-bold: 700;

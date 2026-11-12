@@ -98,23 +98,11 @@ export default function ProjectDetail() {
           )}
         </div>
       </div>
-
       <div className={styles.content}>
         <section className={styles.block}>
           <h2 className={styles.blockTitle}>프로젝트 개요</h2>
           <ul className={styles.points}>
             {detail.overview.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className={styles.block}>
-          <h2 className={styles.blockTitle}>
-            {project.kind === "team" ? "내가 맡은 일" : "주요 구현"}
-          </h2>
-          <ul className={styles.points}>
-            {detail.implementations.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
@@ -142,13 +130,93 @@ export default function ProjectDetail() {
           </section>
         )}
 
+        {detail.techStack && (
+          <section className={styles.block}>
+            <h2 className={styles.blockTitle}>기술 스택</h2>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th scope="col">분야</th>
+                  <th scope="col">기술</th>
+                </tr>
+              </thead>
+              <tbody>
+                {detail.techStack.map((row) => (
+                  <tr key={row.area}>
+                    <th scope="row">{row.area}</th>
+                    <td>{row.items}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        )}
+
+        {detail.flow && (
+          <section className={styles.block}>
+            <h2 className={styles.blockTitle}>
+              작동 흐름: {detail.flow.title}
+            </h2>
+            <p className={styles.text}>{detail.flow.description}</p>
+            <ol className={styles.flow}>
+              {detail.flow.steps.map((step, index) => (
+                <li key={step} className={styles.flowStep}>
+                  <span className={styles.flowNumber} aria-hidden="true">
+                    {index + 1}
+                  </span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+            {detail.flow.notes && (
+              <ul className={styles.points}>
+                {detail.flow.notes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
+
+        <section className={styles.block}>
+          <h2 className={styles.blockTitle}>
+            {project.kind === "team" ? "내가 맡은 일" : "주요 구현"}
+          </h2>
+          {detail.implementations.map((group, index) => (
+            <div key={group.title ?? index} className={styles.group}>
+              {group.title && (
+                <h3 className={styles.groupTitle}>{group.title}</h3>
+              )}
+              <ul className={styles.points}>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+
+        {detail.decisions && (
+          <section className={styles.block}>
+            <h2 className={styles.blockTitle}>기술적 의사결정</h2>
+            <div className={styles.cards}>
+              {detail.decisions.map((item) => (
+                <article key={item.title} className={styles.card}>
+                  <h3 className={styles.groupTitle}>{item.title}</h3>
+                  <p className={styles.text}>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
         {detail.troubleshooting.length > 0 && (
           <section className={styles.block}>
             <h2 className={styles.blockTitle}>트러블슈팅</h2>
-            <div className={styles.troubles}>
+            <div className={styles.cards}>
               {detail.troubleshooting.map((item) => (
-                <article key={item.title} className={styles.trouble}>
-                  <h3 className={styles.troubleTitle}>{item.title}</h3>
+                <article key={item.title} className={styles.card}>
+                  <h3 className={styles.groupTitle}>{item.title}</h3>
                   <dl className={styles.troubleList}>
                     <div>
                       <dt>문제</dt>
@@ -169,6 +237,11 @@ export default function ProjectDetail() {
                       </div>
                     )}
                   </dl>
+                  {item.code && (
+                    <pre className={styles.code}>
+                      <code>{item.code}</code>
+                    </pre>
+                  )}
                 </article>
               ))}
             </div>
@@ -183,6 +256,15 @@ export default function ProjectDetail() {
             ))}
           </ul>
         </section>
+
+        {detail.structure && (
+          <section className={styles.block}>
+            <h2 className={styles.blockTitle}>폴더 구조</h2>
+            <pre className={styles.code}>
+              <code>{detail.structure}</code>
+            </pre>
+          </section>
+        )}
 
         {nextProject && (
           <nav className={styles.next} aria-label="다음 프로젝트">

@@ -34,29 +34,125 @@ export const projects: Project[] = [
     },
     detail: {
       overview: [
-        "개발 기록을 남기는 블로그에 AI 고양이가 몰래 들여다본다면 어떨까 하는 생각에서 출발해, AI 연동까지 직접 구현해 보기 위해 1개월간 혼자 만든 프로젝트",
-        "Next.js App Router 기반으로 공개 블로그와 관리자 페이지를 분리해 구성",
-        "Supabase로 게시글·댓글·태그 데이터를 관리하고, Vercel로 배포",
-      ],
-      implementations: [
-        "라우트 그룹으로 사이드바 레이아웃을 공유하는 관리자 페이지 구성",
-        "URL 쿼리 기반으로 게시 상태별 탭 필터링 구현",
-        "Supabase RLS 정책으로 데이터 접근 권한을 제어하고, 서버/클라이언트 환경에 맞게 Supabase 클라이언트를 분리해 사용",
-        "Supabase Storage 이미지 업로드 시 sharp로 압축 처리",
-        "Gemini API로 기존 Velog 게시글의 문체를 변환해 Supabase로 이전",
-        "Vercel Cron으로 새 Velog 글의 문체 변환, 썸네일 생성, 게시까지 자동화",
+        "“내 블로그를 몰래 엿보는 AI 고양이가 있으면 재밌겠다”는 아이디어에서 시작해, AI API를 실제 서비스에 연동해 보기 위해 혼자 기획하고 개발한 블로그",
+        "서버 랙에 사는 시니컬한 고양이 Z-cat이 벨로그에 올라온 개발 글을 자기 말투로 다시 써서 게시",
+        "1개월간 핵심 기능을 개발해 배포했고, 현재 개선 사항을 반영하며 유지보수 중",
+        "Vercel Cron으로 AI 자동 포스팅을 운영 중",
       ],
       screens: [
+        // 이미 채운 스크린샷 그대로
+      ],
+      techStack: [
         {
-          image: "/images/projects/z-cat/screen-1.png",
-          caption: "관리자 페이지에서 게시 상태별 탭으로 글을 걸러 보는 화면",
+          area: "프레임워크",
+          items: "Next.js 16 (App Router), React 19, TypeScript",
+        },
+        { area: "스타일", items: "Tailwind CSS v4, shadcn/ui, Framer Motion" },
+        { area: "백엔드", items: "Supabase (PostgreSQL, Auth, Storage)" },
+        {
+          area: "AI / 외부 API",
+          items: "Gemini, Pollinations, MyMemory, Resend",
+        },
+        { area: "이미지 처리", items: "sharp" },
+        { area: "배포", items: "Vercel, Vercel Cron" },
+      ],
+      flow: {
+        title: "AI 자동 포스팅",
+        description:
+          "매일 한국 시간 자정에 Vercel Cron이 새 벨로그 글을 확인합니다. 새 글이 있으면 Gemini로 말투를 바꾸고 썸네일을 만들어 게시한 뒤, 완료 메일을 보냅니다.",
+        steps: [
+          "Vercel Cron 실행",
+          "벨로그 RSS 확인",
+          "Gemini로 말투 변환",
+          "Pollinations로 썸네일 생성",
+          "Supabase에 저장",
+          "페이지 캐시 갱신",
+          "Resend로 완료 메일 발송",
+        ],
+        notes: [
+          "새 글이 없으면 2단계에서 종료",
+          "마지막으로 게시한 벨로그 글의 published_at보다 최신인 글만 처리해 같은 글이 다시 게시되지 않도록 함",
+          "기존 벨로그 글 27개는 Gemini로 문체를 변환해 Supabase로 이전",
+        ],
+      },
+      implementations: [
+        {
+          title: "공개 블로그와 관리자 페이지 분리",
+          items: [
+            "App Router의 라우트 그룹으로 공개 블로그와 관리자 페이지의 레이아웃을 분리",
+            "proxy.ts에서 로그인 여부를 확인해 /admin 접근을 제어",
+            "관리자 게시물 목록은 URL 쿼리로 게시 상태 탭과 검색어를 관리",
+          ],
         },
         {
-          image: "/images/projects/z-cat/screen-2.png",
-          caption: "Gemini API로 문체를 변환해 Velog에서 옮겨 온 게시글",
+          title: "마크다운 에디터",
+          items: [
+            "미리보기, 자동 저장, 임시 저장, 발행 지원",
+            "한글 제목을 번역해 slug를 자동으로 만들고, 저장할 때 중복 여부를 검사",
+            "폼 로직은 useEditorForm 훅으로 분리하고, 여러 단계로 전달되던 상태는 Context API로 옮겨 Prop Drilling을 해결",
+          ],
+        },
+        {
+          title: "Supabase 데이터 관리",
+          items: [
+            "RLS 정책으로 데이터 접근 권한을 제어하고, 비로그인 사용자는 발행된 글만 읽을 수 있음",
+            "서버와 클라이언트 환경에 맞게 Supabase 클라이언트를 분리해 사용",
+          ],
+        },
+        {
+          title: "이미지 처리",
+          items: [
+            "업로드된 이미지는 서버 액션에서 sharp로 1200×630 WebP로 변환해 Supabase Storage에 저장",
+            "썸네일을 교체하거나 글을 영구 삭제할 때 Storage 파일도 함께 삭제해 사용하지 않는 파일이 쌓이지 않게 함",
+          ],
+        },
+        {
+          title: "그 외 기능",
+          items: [
+            "글 탐색: 태그 필터, 검색, 댓글",
+            "문의: Resend를 이용한 이메일 발송",
+            "휴지통: 소프트 딜리트, 복구, 영구 삭제",
+            "반응형: 공개 페이지와 관리자 페이지 모두 모바일 우선으로 구성",
+          ],
+        },
+      ],
+      decisions: [
+        {
+          title: "캐시 갱신: 글이 바뀌는 시점에 무효화",
+          description:
+            "글이 바뀌는 시점이 저장, 발행, 삭제, 자동 포스팅으로 명확하기 때문에 revalidatePath를 중심으로 캐시를 갱신합니다. About 페이지에는 revalidate = 3600을 함께 설정했습니다.",
+        },
+        {
+          title: "삭제: 글 상태에 따라 방식 분리",
+          description:
+            "임시 글은 바로 삭제하고, 발행된 글은 deleted_at을 기록하는 소프트 딜리트로 처리해 휴지통에서 복구할 수 있게 했습니다.",
+        },
+        {
+          title: "태그: 별도 테이블 없이 배열로 관리",
+          description:
+            "포트폴리오 규모에서는 배열로 충분하다고 판단해, 테이블을 나누지 않고 글 데이터에 태그 배열을 저장했습니다.",
         },
       ],
       troubleshooting: [
+        {
+          title: "자동 저장이 썸네일을 지우는 문제",
+          problem:
+            "자동 저장과 발행이 동시에 실행될 때, 자동 저장이 나중에 끝나면 저장된 썸네일이 null로 덮어써질 수 있었습니다.",
+          cause:
+            "clearTimeout은 대기 중인 타이머만 취소할 뿐, 이미 실행 중인 비동기 요청은 멈추지 못합니다.",
+          solution:
+            "값이 없으면 cover_image를 null로 보내지 않고 payload에서 제외했습니다. UPDATE는 payload에 없는 필드를 건드리지 않아 기존 값이 유지됩니다.",
+          code: "...(form.cover_image !== undefined && { cover_image: form.cover_image }),",
+        },
+        {
+          title: "이미지 업로드 실패가 드러나지 않는 문제",
+          problem:
+            "업로드에 실패해도 오류 표시 없이 썸네일 없는 글이 발행됐습니다.",
+          cause:
+            "실패 결과를 처리하는 코드가 없었고, Storage 버킷의 RLS 정책도 설정되어 있지 않아 업로드가 차단되고 있었습니다.",
+          solution:
+            "실패하면 토스트로 알리고 발행을 중단하도록 바꾼 뒤, 버킷에 RLS 정책을 추가했습니다.",
+        },
         {
           title: "서버 전용 모듈 import 에러",
           problem:
@@ -78,6 +174,15 @@ export const projects: Project[] = [
         "서버/클라이언트 컴포넌트의 경계를 직접 설계하며, 어떤 코드가 어디서 실행되는지 구조적으로 이해",
         "UI 기본 구조를 먼저 잡고 기능을 붙인 뒤 디테일을 채우는 순서로 작업 방식을 바꿔 개발 속도 개선",
       ],
+      structure: `src/
+├── app/            # 라우팅 (공개 페이지, 관리자 페이지, API)
+├── components/     # UI 컴포넌트
+├── hooks/          # 커스텀 훅
+├── lib/
+│   ├── actions/    # 서버 액션 (데이터 변경)
+│   └── queries/    # 읽기 전용 쿼리
+├── types/          # 타입 정의
+└── proxy.ts        # 관리자 페이지 접근 제어`,
     },
   },
   {
@@ -127,9 +232,13 @@ export const projects: Project[] = [
         "PO·SM·개발자 3명으로 역할을 나눠 7일 안에 배포까지 완료",
       ],
       implementations: [
-        "Firebase Authentication으로 이메일 회원가입·로그인 및 Google 로그인 구현",
-        "별도 백엔드 서버 없이 인증 기능을 붙이기 위해 Firebase를 선택",
-        "퍼블리싱 경험을 살려 레이아웃 스타일 일부 정리",
+        {
+          items: [
+            "Firebase Authentication으로 이메일 회원가입·로그인 및 Google 로그인 구현",
+            "별도 백엔드 서버 없이 인증 기능을 붙이기 위해 Firebase를 선택",
+            "퍼블리싱 경험을 살려 레이아웃 스타일 일부 정리",
+          ],
+        },
       ],
       screens: [
         {

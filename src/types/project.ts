@@ -14,14 +14,41 @@ export interface Troubleshooting {
   cause: string;
   solution: string;
   learned?: string;
+  code?: string;
+}
+
+export interface StackRow {
+  area: string;
+  items: string;
+}
+
+export interface FeatureGroup {
+  title?: string;
+  items: string[];
+}
+
+export interface Flow {
+  title: string;
+  description: string;
+  steps: string[];
+  notes?: string[];
+}
+
+export interface Decision {
+  title: string;
+  description: string;
 }
 
 export interface ProjectDetail {
   overview: string[];
-  implementations: string[];
   screens: { image?: string; caption: string }[];
+  techStack?: StackRow[];
+  flow?: Flow;
+  implementations: FeatureGroup[];
+  decisions?: Decision[];
   troubleshooting: Troubleshooting[];
   learned: string[];
+  structure?: string;
 }
 
 export interface Project {
