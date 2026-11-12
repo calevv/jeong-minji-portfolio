@@ -22,3 +22,8 @@
   background: var(--color-warning-bg);
   color: var(--color-warning-text);
 }
+
+.info {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+}

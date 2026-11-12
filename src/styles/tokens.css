@@ -49,6 +49,8 @@
   --color-success-text: #14602f;
   --color-warning-bg: #fff1d6;
   --color-warning-text: #7a4a00;
+  --color-info-bg: #dbe5fe;
+  --color-info-text: var(--color-primary-strong);
 
   /* 색: 프로젝트 커버 일러스트 전용 */
   --color-yellow: #ffc83d;

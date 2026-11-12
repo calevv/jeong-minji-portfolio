@@ -46,6 +46,9 @@ export default function ProjectDetail() {
           <p className={styles.summary}>{project.summary}</p>
           <div className={styles.actions}>
             {links.demo && <Button href={links.demo}>배포 사이트</Button>}
+            {!links.demo && project.status === "in-progress" && (
+              <Button disabled>배포 준비 중</Button>
+            )}
             {links.github && (
               <Button variant="secondary" href={links.github}>
                 GitHub
@@ -226,6 +229,12 @@ export default function ProjectDetail() {
                       <dt>원인</dt>
                       <dd>{item.cause}</dd>
                     </div>
+                    {item.considered && (
+                      <div>
+                        <dt>검토한 방법</dt>
+                        <dd>{item.considered}</dd>
+                      </div>
+                    )}
                     <div>
                       <dt>해결</dt>
                       <dd>{item.solution}</dd>
@@ -256,6 +265,24 @@ export default function ProjectDetail() {
             ))}
           </ul>
         </section>
+
+        {detail.roadmap && (
+          <section className={styles.block}>
+            <h2 className={styles.blockTitle}>앞으로 구현할 것</h2>
+            {detail.roadmap.map((group, index) => (
+              <div key={group.title ?? index} className={styles.group}>
+                {group.title && (
+                  <h3 className={styles.groupTitle}>{group.title}</h3>
+                )}
+                <ul className={styles.points}>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        )}
 
         {detail.structure && (
           <section className={styles.block}>

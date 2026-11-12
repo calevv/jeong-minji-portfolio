@@ -12,6 +12,7 @@ export interface Troubleshooting {
   title: string;
   problem: string;
   cause: string;
+  considered?: string;
   solution: string;
   learned?: string;
   code?: string;
@@ -48,6 +49,7 @@ export interface ProjectDetail {
   decisions?: Decision[];
   troubleshooting: Troubleshooting[];
   learned: string[];
+  roadmap?: FeatureGroup[];
   structure?: string;
 }
 

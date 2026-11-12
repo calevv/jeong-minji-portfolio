@@ -82,7 +82,11 @@ export default function ProjectItem({ project }: ProjectItemProps) {
           </div>
 
           <div className={styles.result}>
-            <p className={styles.boxLabel}>결과 · 배운 점</p>
+            <p className={styles.boxLabel}>
+              {project.status === "in-progress"
+                ? "진행하며 배운 점"
+                : "결과 · 배운 점"}
+            </p>
             <p>{project.result}</p>
           </div>
 
@@ -98,6 +102,11 @@ export default function ProjectItem({ project }: ProjectItemProps) {
             {links.demo && (
               <Button variant="secondary" href={links.demo}>
                 배포
+              </Button>
+            )}
+            {!links.demo && project.status === "in-progress" && (
+              <Button variant="secondary" disabled>
+                배포 준비 중
               </Button>
             )}
           </div>
