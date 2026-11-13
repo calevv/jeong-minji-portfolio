@@ -1,5 +1,14 @@
 .header {
   border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--color-bg);
+}
+
+@media (min-width: 48rem) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 }
 
 .inner {
@@ -35,4 +44,13 @@
 .link:hover {
   color: var(--color-text);
   background: var(--color-bg-tint);
+}
+
+.active {
+  color: var(--color-primary);
+  font-weight: var(--weight-bold);
+}
+
+.active:hover {
+  color: var(--color-primary-strong);
 }

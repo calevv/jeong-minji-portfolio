@@ -37,6 +37,7 @@
   --color-bg: #ffffff;
   --color-bg-subtle: #f6f8fd;
   --color-bg-tint: #eef1fa;
+  --color-bg-glass: rgb(255 255 255 / 0.8); /* 흰색 80% */
 
   /* 색: 테두리 */
   --color-border: #e3e8f4;
@@ -91,4 +92,6 @@
   --measure: 35rem; /* 560px, 긴 문장의 최대 폭 */
   --card-min: 17.5rem; /* 280px, 카드가 줄바꿈되는 최소 폭 */
   --avatar-size: 12.5rem; /* 200px */
+
+  --header-height: 4.5rem; /* 72px, 고정 헤더만큼 비워 둘 높이 */
 }

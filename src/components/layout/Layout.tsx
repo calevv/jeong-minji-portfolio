@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 import styles from "./Layout.module.css";
+import ScrollTopButton from "./ScrollTopButton";
 
 export default function Layout() {
   const { hash, key } = useLocation();
@@ -30,6 +31,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <ScrollTopButton />
     </div>
   );
 }

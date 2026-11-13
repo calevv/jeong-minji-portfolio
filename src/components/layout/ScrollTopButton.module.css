@@ -1,0 +1,40 @@
+.top {
+  position: fixed;
+  right: var(--space-6);
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  padding: 0;
+  border: var(--border-width) solid var(--color-border-control);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(0.5rem);
+  color: var(--color-text);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--motion-ui) ease-out,
+    visibility var(--motion-ui),
+    transform var(--motion-ui) ease-out;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.top:hover {
+  transform: translateY(-0.125rem);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.top svg {
+  width: var(--space-6);
+  height: var(--space-6);
+}
