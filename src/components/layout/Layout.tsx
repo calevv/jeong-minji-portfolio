@@ -9,7 +9,12 @@ export default function Layout() {
 
   useEffect(() => {
     if (hash) {
-      document.getElementById(hash.slice(1))?.scrollIntoView();
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      document
+        .getElementById(hash.slice(1))
+        ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
       return;
     }
     window.scrollTo(0, 0);

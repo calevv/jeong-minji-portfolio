@@ -38,3 +38,18 @@
   flex-wrap: wrap;
   gap: var(--space-3);
 }
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate {
+  animation: heroIn var(--motion-hero) ease-out both;
+}

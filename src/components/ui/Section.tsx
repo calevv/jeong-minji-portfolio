@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import useReveal from "@/hooks/useReveal";
 import styles from "./Section.module.css";
 
 interface SectionProps {
@@ -12,12 +13,17 @@ export default function Section({
   tone = "default",
   children,
 }: SectionProps) {
-  const className =
+  const { ref, visible } = useReveal<HTMLElement>();
+
+  const sectionClass =
     tone === "tint" ? `${styles.section} ${styles.tint}` : styles.section;
+  const innerClass = visible
+    ? `${styles.inner} ${styles.reveal} ${styles.visible}`
+    : `${styles.inner} ${styles.reveal}`;
 
   return (
-    <section id={id} className={className}>
-      <div className={styles.inner}>{children}</div>
+    <section id={id} ref={ref} className={sectionClass}>
+      <div className={innerClass}>{children}</div>
     </section>
   );
 }

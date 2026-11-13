@@ -11,3 +11,23 @@
   margin: 0 auto;
   padding: 0 var(--space-8);
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity var(--motion-hero) ease-out,
+    transform var(--motion-hero) ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
