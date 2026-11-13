@@ -388,8 +388,7 @@ export const projects: Project[] = [
     title: "딸깍영어",
     status: "renewal-planned",
     kind: "team",
-    summary:
-      "AI가 뉴스 기사를 분석해 단어를 추출해 주는 영어 단어 학습 웹 서비스",
+    summary: "AI가 만든 오늘의 영어 기사로 단어를 학습하는 영어 학습 웹 서비스",
     period: "2025.04.28 - 2025.05.04 (7일)",
     members: "5명 (PO · SM · 개발자 3명)",
     role: "개발",
@@ -409,7 +408,7 @@ export const projects: Project[] = [
       "Netlify",
     ],
     highlights: [
-      "OpenAI API로 영어 기사형 텍스트를 생성하고 학습할 단어를 추출 (Netlify 서버리스 함수로 API 호출)",
+      "OpenAI API로 오늘의 영어 기사를 만들고 학습할 단어를 추출 (Netlify 서버리스 함수로 API 호출)",
       "기사 속 단어를 체크박스로 단어장에 저장·검색하고, 영→한 / 한→영 테스트로 복습",
       "React Query로 API 응답의 로딩·캐싱·재시도를 관리하고, Zustand로 단어장·테스트 상태 관리",
     ],
@@ -422,7 +421,7 @@ export const projects: Project[] = [
     },
     detail: {
       overview: [
-        "실제 뉴스 기사를 가져올 수 없는 제약이 있어, OpenAI API로 영어 뉴스 기사형 텍스트를 생성하고 기사에서 학습할 단어를 추출하는 방식으로 설계",
+        "실제 뉴스 기사를 가져올 수 없는 제약이 있어, OpenAI API로 오늘의 영어 기사를 만들고 기사에서 학습할 단어를 뽑아 주는 방식으로 설계",
         "API 호출은 Netlify 서버리스 함수로 처리해 클라이언트에 API 키가 노출되지 않도록 구성",
         "카테고리별 기사 필터링, 체크박스로 단어장 저장·검색, 영→한/한→영 테스트 모드 제공",
         "React Query로 API 응답의 로딩·캐싱·재시도를 관리하고, Zustand로 단어장·테스트 상태 관리",
@@ -446,7 +445,8 @@ export const projects: Project[] = [
         },
         {
           image: "/images/projects/ddalkkak-english/screen-2.png",
-          caption: "뉴스 기사 속 단어를 체크박스로 골라 모아 두는 단어장 화면",
+          caption:
+            "AI가 만든 기사 속 단어를 체크박스로 골라 모아 두는 단어장 화면",
         },
       ],
       troubleshooting: [],
